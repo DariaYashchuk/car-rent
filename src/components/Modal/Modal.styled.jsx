@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
   height: 100%;
   background-color: var(--backdrop-color);
 
-  z-index: 999;
+  z-index: 998;
 
   transition: all 250ms ease-in-out;
 `;
@@ -19,7 +19,6 @@ export const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--white-color);
-  border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 40px;
 
@@ -29,7 +28,7 @@ export const Container = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  width: 461px;
+  max-width: 461px;
 `;
 
 export const CloseButton = styled.button`
@@ -43,4 +42,18 @@ export const CloseButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
+`;
+
+export const Image = styled.img`
+  border-radius: 14px;
+`;
+
+export const Header = styled.h2`
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 18px;
+`;
+
+export const Model = styled.span`
+  color: var(--accent-text-color);
 `;

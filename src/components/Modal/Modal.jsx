@@ -7,11 +7,14 @@ import {
   Container,
   CloseButton,
   ContentWrapper,
+  Image,
+  Header,
+  Model,
 } from "./Modal.styled";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Modal = ({ isModalOpened, closeModal, car }) => {
-  const { model, img, description } = car;
+  const { model, img, description, make, address, year } = car;
 
   const onBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -38,6 +41,11 @@ const Modal = ({ isModalOpened, closeModal, car }) => {
   if (!isModalOpened) {
     return null;
   }
+
+  const carAddress = address.split(", ");
+  const city = carAddress[1];
+  const country = carAddress[2];
+
   return ReactDOM.createPortal(
     <Backdrop onClick={onBackdropClick}>
       <Container>
@@ -45,7 +53,10 @@ const Modal = ({ isModalOpened, closeModal, car }) => {
           <IoCloseOutline />
         </CloseButton>
         <ContentWrapper>
-          <img src={img} alt={model} />
+          <Image src={img} alt={model} />
+          <Header>
+            {make} <Model>{model}</Model>, {year}
+          </Header>
           <p>{description}</p>
         </ContentWrapper>
       </Container>
