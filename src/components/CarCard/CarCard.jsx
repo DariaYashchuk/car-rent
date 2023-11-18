@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAdvertById } from "../../redux/adverts/operations";
+import { selectFavorites } from "../../redux/favorites/favoritesSelector";
+import {
+  addFavorite,
+  removeFavorite,
+} from "../../redux/favorites/favoritesSlice";
 import { LearnMoreButton } from "../LearnMoreButton/LearnMoreButton";
 import Modal from "../Modal/Modal";
 import {
@@ -13,6 +18,7 @@ import {
   Model,
   RegularIcon,
   IconWrapper,
+  FavoriteIcon,
 } from "./CarCard.styled";
 
 export const CarCard = ({ car }) => {
@@ -29,8 +35,26 @@ export const CarCard = ({ car }) => {
     address,
   } = car;
 
+  const [isCarFavorite, setIsCarFavorite] = useState(false);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const dispatch = useDispatch();
+  const { favorites } = useSelector(selectFavorites);
+
+  useEffect(() => {
+    if (favorites.some((favorite) => favorite.id === car.id)) {
+      setIsCarFavorite(true);
+    }
+  }, [favorites, car]);
+
+  const addToFavorite = () => {
+    setIsCarFavorite(!isCarFavorite);
+
+    if (favorites.some((favorite) => favorite.id === car.id)) {
+      dispatch(removeFavorite(car));
+    } else {
+      dispatch(addFavorite(car));
+    }
+  };
 
   const openModal = () => {
     setIsModalOpened(true);
@@ -46,11 +70,11 @@ export const CarCard = ({ car }) => {
   const country = carAddress[2];
 
   return (
-    <Wrapper key={id}>
+    <Wrapper>
       <ImgWrapper>
         <Image src={img} alt={model} />
-        <IconWrapper>
-          <RegularIcon />
+        <IconWrapper onClick={addToFavorite}>
+          {isCarFavorite ? <FavoriteIcon /> : <RegularIcon />}
         </IconWrapper>
       </ImgWrapper>
       <HeaderWrapper>

@@ -42,7 +42,7 @@ export const RegularIcon = styled(BiHeart)`
 `;
 
 export const FavoriteIcon = styled(BiSolidHeart)`
-  fill: var(--button-color);
+  color: var(--regular-btn-color);
   width: 100%;
   height: 100%;
 `;
