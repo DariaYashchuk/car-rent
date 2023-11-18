@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
+import { CarCard } from "../CarCard/CarCard";
+import { Wrapper } from "./CarsList.styled";
 
 export const CarsList = ({ cars }) => {
   return (
-    <ul>
-      {cars.map((item) => (
-        <li key={item.id}>{item.id}</li>
+    <Wrapper>
+      {cars.map((car) => (
+        <CarCard car={car} key={car.id} />
       ))}
-    </ul>
+    </Wrapper>
   );
 };
 CarsList.propTypes = {

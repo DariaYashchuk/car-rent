@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CarsList } from "../../components/CarsList/CarsList";
 import { getAdvert } from "../../redux/adverts/advertsSelector";
 import { fetchAdvert } from "../../redux/adverts/operations";
+import { Button, Wrapper } from "./CatalogPage.styled";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -25,10 +26,10 @@ const CatalogPage = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <CarsList cars={cars} />
-      {items.length === 12 && <button onClick={onLoadMore}>Load More</button>}
-    </>
+      {items.length === 12 && <Button onClick={onLoadMore}>Load More</Button>}
+    </Wrapper>
   );
 };
 export default CatalogPage;

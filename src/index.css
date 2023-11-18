@@ -3,6 +3,12 @@
 
 :root {
   --white-color: #fff;
+  --regular-text-color: #121417;
+  --accent-text-color: #3470ff;
+  --regular-btn-color: #3470ff;
+  --active-btn-color: #0b44cd;
+  --backdrop-color: #12141780;
+  --modal-border: #dce3e5cc;
 }
 
 .move {
@@ -31,6 +37,9 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--white-color);
+  line-height: 1.5;
+
+  color: var(--regular-text-color);
 }
 
 ul {
@@ -47,4 +56,11 @@ img {
 
 a {
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: transparent;
 }
