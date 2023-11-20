@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CarsList } from "../../components/CarsList/CarsList";
-import { getAdvert } from "../../redux/adverts/advertsSelector";
+import { Loader } from "../../components/Loader/Loader";
+import { getAdvert, getIsLoading } from "../../redux/adverts/advertsSelector";
 import { fetchAdvert } from "../../redux/adverts/operations";
 import { Button, Wrapper } from "./CatalogPage.styled";
 
@@ -15,6 +16,7 @@ const CatalogPage = () => {
     dispatch(fetchAdvert(page));
   }, [dispatch, page]);
   const { items } = useSelector(getAdvert);
+  const { isLoading } = useSelector(getIsLoading);
 
   useEffect(() => {
     setCars(items);
@@ -27,8 +29,11 @@ const CatalogPage = () => {
 
   return (
     <Wrapper>
-      <CarsList cars={cars} />
-      {items.length === 12 && <Button onClick={onLoadMore}>Load More</Button>}
+      {isLoading ? <Loader /> : <CarsList cars={cars} />}
+
+      {items.length === 12 && !isLoading && (
+        <Button onClick={onLoadMore}>Load More</Button>
+      )}
     </Wrapper>
   );
 };

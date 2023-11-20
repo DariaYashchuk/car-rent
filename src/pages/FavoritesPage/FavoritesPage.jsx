@@ -4,7 +4,6 @@ import { selectFavorites } from "../../redux/favorites/favoritesSelector";
 
 const FavoritesPage = () => {
   const { favorites } = useSelector(selectFavorites);
-  console.log(favorites);
   return (
     <>
       {favorites.length > 0 ? (

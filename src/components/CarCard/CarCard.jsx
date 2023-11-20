@@ -84,19 +84,10 @@ export const CarCard = ({ car }) => {
         <Header>{rentalPrice}</Header>
       </HeaderWrapper>
       <InfoWrapper>
-        <p>{city}</p>
-        <span>|</span>
-        <p>{country}</p>
-        <span>|</span>
-        <p>{rentalCompany}</p>
-        <span>|</span>
-        <p>{type}</p>
-        <span>|</span>
-        <p>{model}</p>
-        <span>|</span>
-        <p>{id}</p>
-        <span>|</span>
-        <p>{functionalities[0]}</p>
+        {city} | {country} | {rentalCompany} | {type}
+      </InfoWrapper>
+      <InfoWrapper>
+        {model} | {id} | {functionalities[0]}
       </InfoWrapper>
       <LearnMoreButton openModal={openModal} />
       {isModalOpened && (

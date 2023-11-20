@@ -62,10 +62,10 @@ export const Model = styled.span`
   color: var(--accent-text-color);
 `;
 
-export const InfoWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+export const InfoWrapper = styled.p`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   margin-top: 8px;
 

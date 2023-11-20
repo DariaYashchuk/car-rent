@@ -25,10 +25,14 @@ export const Container = styled.div`
   z-index: 999;
 
   transition: all 250ms ease-in-out;
+
+  overflow: auto;
 `;
 
 export const ContentWrapper = styled.div`
   max-width: 461px;
+  overflow: scroll;
+  height: 500px;
 `;
 
 export const CloseButton = styled.button`
@@ -54,6 +58,84 @@ export const Header = styled.h2`
   font-size: 18px;
 `;
 
-export const Model = styled.span`
+export const Accent = styled.span`
   color: var(--accent-text-color);
+`;
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 8px;
+
+  color: rgba(18, 20, 23, 0.5);
+
+  font-size: 12px;
+`;
+
+export const Description = styled.p`
+  margin-top: 14px;
+`;
+
+export const InfoHeader = styled.p`
+  margin-top: 24px;
+  font-weight: 500;
+`;
+
+export const Access = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 8px;
+
+  color: rgba(18, 20, 23, 0.5);
+
+  font-size: 12px;
+`;
+
+export const Funcs = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 4px;
+
+  color: rgba(18, 20, 23, 0.5);
+
+  font-size: 12px;
+`;
+
+export const DecorWrapper = styled.div`
+  padding: 7px 14px;
+  font-size: 12px;
+  border-radius: 35px;
+  background: #f9f9f9;
+`;
+export const RentCondWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 8px;
+`;
+
+export const RentCarButton = styled.a`
+  display: inline-block;
+
+  padding: 12px 50px;
+  border-radius: 12px;
+  background: var(--regular-btn-color);
+  color: var(--white-color);
+  margin-top: 24px;
+
+  font-weight: 600;
+  line-height: 1.43;
+
+  transition: all 250ms ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+    background: var(--active-btn-color);
+  }
 `;
