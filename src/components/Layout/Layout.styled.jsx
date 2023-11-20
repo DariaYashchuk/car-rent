@@ -14,6 +14,8 @@ export const NavList = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  margin-top: 10px;
 `;
 
 export const NavListItem = styled.li``;

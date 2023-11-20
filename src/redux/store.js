@@ -11,11 +11,13 @@ import {
 
 import { advertReducer } from "./adverts/advertsSlice";
 import { favoritesReducer } from "./favorites/favoritesSlice";
+import { filterReducer } from "./filter/filterSlice";
 
 export const store = configureStore({
   reducer: {
     advert: advertReducer,
     favorites: favoritesReducer,
+    filter: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { CarsList } from "../../components/CarsList/CarsList";
 import { selectFavorites } from "../../redux/favorites/favoritesSelector";
+import { LinkCatalog, Wrapper } from "./FavoritesPage.styled";
 
 const FavoritesPage = () => {
   const { favorites } = useSelector(selectFavorites);
@@ -9,7 +10,13 @@ const FavoritesPage = () => {
       {favorites.length > 0 ? (
         <CarsList cars={favorites} />
       ) : (
-        <p>NO FAVORITES</p>
+        <Wrapper>
+          <h2>Oops, no favorites ;(</h2>
+          <h2>
+            Lets go to our <LinkCatalog to="/catalog">catalog</LinkCatalog> to
+            find the car to rent
+          </h2>
+        </Wrapper>
       )}
     </>
   );

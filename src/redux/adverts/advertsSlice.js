@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAdvert, fetchAdvertById } from "./operations";
+import { fetchAdvert, fetchAdvertAll, fetchAdvertById } from "./operations";
 
 const advertInitialState = {
   items: [],
+  itemsAll: [],
   advertById: {},
   isLoading: false,
   error: null,
@@ -24,6 +25,13 @@ export const advertSlice = createSlice({
     [fetchAdvert.rejected]: handleRejected,
     [fetchAdvertById.pending]: handlePending,
     [fetchAdvertById.rejected]: handleRejected,
+    [fetchAdvertAll.pending]: handlePending,
+    [fetchAdvertAll.rejected]: handleRejected,
+    [fetchAdvertAll.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.itemsAll = action.payload;
+    },
     [fetchAdvert.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
