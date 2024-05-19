@@ -11,6 +11,7 @@ import { Wrapper } from "./CatalogPage.styled";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+  const a = 25;
 
   const brand = useSelector(brandSelector);
   //  const brand = useSelector(brandSelector);
